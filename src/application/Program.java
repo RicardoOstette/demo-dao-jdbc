@@ -40,6 +40,14 @@ public class Program {
 		Seller newseller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.00, new Department(2, null));
 		sellerDao.insert(newseller);
 		IO.println("Inserted! New id = " + newseller.getId());
+		
+		IO.println();
+		
+		IO.println("=== Test 5: seller update ===");
+		seller = sellerDao.findById(1);
+		seller.setName("Martha Waine");
+		sellerDao.update(seller);
+		IO.println("Update Complete");
 	}
 
 }

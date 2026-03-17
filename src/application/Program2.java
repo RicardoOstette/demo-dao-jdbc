@@ -13,15 +13,15 @@ public class Program2 {
 		DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
 		
 		IO.println("=== Test 1: Department fyndById ===");
-		Department department = departmentDao.findById(3);
-		IO.println(department);
+		Department dep = departmentDao.findById(3);
+		IO.println(dep);
 		
 		IO.println();
 		
 		IO.println("=== Test 2: Department fyndAll ===");
 		List<Department> list = departmentDao.findAll();
-		for (Department dep : list) {
-			IO.println(dep);
+		for (Department obj : list) {
+			IO.println(obj);
 		}
 		
 		IO.println();
@@ -31,7 +31,13 @@ public class Program2 {
 		departmentDao.insert(newDepartment);
 		IO.println("Inserted! New Department:" + newDepartment.getName());
 		
+		IO.println();
 		
+		IO.println("=== Test 4: Update insert ===");
+		dep = departmentDao.findById(6);
+		dep.setName("furnishings");
+		departmentDao.update(dep);
+		IO.println("Update Complete");
 	}
 
 }
